@@ -2,12 +2,13 @@ package bike;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LoadBike {
 	
 	private String file;
-	private String name;
+	private ArrayList<String> name;
 	private String brand;
 	private String model;
 	private String frontGear;
@@ -21,7 +22,7 @@ public class LoadBike {
 	// Constructor
 	LoadBike() {
 		file = "BikeConfig.txt";
-		name = "";
+		name = new ArrayList<String>();
 		brand = "";
 		model = "";
 		frontGear = "";
@@ -45,7 +46,7 @@ public class LoadBike {
 				//name,brand,model,front gear,rear gear,speed,components,components model,wheel set,tires
 				line = in.nextLine();
 				store = line.split(",");
-				name = store[0];
+				name.add(store[0]);
 				brand = store[1];
 				model = store[2];
 				frontGear = store[3];
@@ -71,11 +72,11 @@ public class LoadBike {
 		this.file = file;
 	}
 
-	public String getName() {
+	public ArrayList<String> getName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(ArrayList<String> name) {
 		this.name = name;
 	}
 
